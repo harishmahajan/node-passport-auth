@@ -1,0 +1,115 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "",
+      "version": "",
+      "title": "ES6_Test",
+      "contact": {
+         "email": ""
+      }
+    },
+    "host": "localhost:1900",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "users",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://localhost:1900"
+        }
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/api/user": {
+        "get": {
+          "tags": [
+            "users"
+          ],
+          "summary": "To get User List",
+          "description": "",
+          "parameters": [
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "users list"
+            },
+            "500": {
+              "description": "Error: Internal Server Error"
+            },
+            "400": {
+              "description": "Error: Bad Request"
+            }
+          }
+        },
+        "post":{
+          "tags": [
+            "users"
+          ],
+          "summary": "To add new user",
+          "description": "",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "user object that needs to be added to the avlms",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/addUser"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "users list"
+            },
+            "500": {
+              "description": "Error: Internal Server Error"
+            },
+            "400": {
+              "description": "Error: Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "users": {
+        "type": "object",
+        "required": [
+        ],
+        "properties": {
+        }
+      },
+      "addUser": {
+        "type": "object",
+        "required": [
+          "userName",
+          "password",
+          "name"
+        ],
+        "properties": {
+         "userName": {
+           "type": "string"
+          },
+          "password": {
+            "type":"string"
+          },
+          "name":{
+            "type":"string"
+          },
+          "profile":{
+            "type":"string"
+          }
+        }
+      }
+    }
+  }

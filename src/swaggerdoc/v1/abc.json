@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "",
+      "version": "",
+      "title": "AVLMS",
+      "contact": {
+         "email": ""
+      }
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "To list the data from the collection",
+        "externalDocs": {
+          "description": "Find out more",
+          "url": "http://localhost:8000"
+        }
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/getListA": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "List of users",
+          "description": "",
+          "parameters": [
+            {
+              "name": "user",
+              "description": "List of users",
+              "in": "body",
+              "schema": {
+                "$ref": "#/definitions/Users"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "users list"
+            },
+            "500": {
+              "description": "Error: Internal Server Error"
+            },
+            "400": {
+              "description": "Error: Bad Request"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Users": {
+        "type": "object",
+        "required": [
+          "collection"
+        ],
+        "properties": {
+         "collection": {
+           "type": "string"
+          },
+          "condition": {
+            "type":"boolean",
+            "default": { "isDel": false }
+        },
+          "data": {
+           "type":"string"
+          }
+        }
+      }
+    }
+  }
